@@ -1,38 +1,206 @@
-import { Route } from "../types";
+import { MapId, RouteStyle } from "../types";
 
-export const routes: Route[] = [
+export type RouteRisk = "Low" | "Medium" | "High";
+
+export interface FarmingRoute {
+  id: string;
+  map: MapId;
+  name: string;
+  style: RouteStyle;
+  risk: RouteRisk;
+  estXp: string;
+  timePerRun: string;
+  description: string;
+  /** Optional list of spawn ids this route particularly favours */
+  recommendedSpawns?: string[];
+}
+
+export const routes: FarmingRoute[] = [
+  // BURIED CITY
   {
-    id: "buried-city-boss-loop",
-    name: "Buried City boss loop",
+    id: "buried-boss-santa-loop",
     map: "Buried City",
-    estXp: "Around 40k to 60k XP per 10 to 15 minutes",
-    timePerRun: "10 to 15 minutes",
-    risk: "High",
+    name: "Santa Maria to Marano boss loop",
     style: "Boss hunting",
+    risk: "High",
+    estXp: "35 000 – 55 000 XP",
+    timePerRun: "18 – 25 minutes",
     description:
-      "Chain Bastion and Bombardier spawns around Santa Maria and Marano Park. Focus on big ARC enemies, burn them with Blaze grenades, then loot every corpse part quickly before rotating.",
+      "From Santa Maria rooftops you rotate through Marano Park and the nearby tower lines, pulling Bastions and Bombardiers into lanes you can control from height.",
+    recommendedSpawns: ["buried-santa-maria"],
   },
   {
-    id: "spaceport-seed-vault",
-    name: "Spaceport Seed Vault rush",
-    map: "Spaceport",
-    estXp: "Around 15k to 50k XP per 5 to 10 minutes",
-    timePerRun: "5 to 10 minutes",
-    risk: "Medium",
+    id: "buried-loot-grandioso-circuit",
+    map: "Buried City",
+    name: "Grandioso apartment circuit",
     style: "Loot running",
+    risk: "Medium",
+    estXp: "25 000 – 40 000 XP",
+    timePerRun: "15 – 22 minutes",
     description:
-      "Spawn and sprint to Seed Vault and loading bays. Open every container you can reach, even if already looted. Works very well with free kit suicide runs where you do not care about extraction.",
+      "Start at Grandioso offices, sweep all floors, then spiral into surrounding apartments and side streets before exiting via the nearest lift.",
+    recommendedSpawns: ["buried-grandioso"],
   },
   {
-    id: "dam-night-apartments",
-    name: "Dam night apartments sweep",
-    map: "The Dam (Night)",
-    estXp: "Around 30k to 45k XP per 20 to 25 minutes",
-    timePerRun: "20 to 25 minutes",
-    risk: "Low",
+    id: "buried-stealth-backstreets",
+    map: "Buried City",
+    name: "Back street stealth sweep",
     style: "Stealth",
+    risk: "Low",
+    estXp: "18 000 – 28 000 XP",
+    timePerRun: "18 – 25 minutes",
     description:
-      "Quiet solo route indoors. Walk, clear and loot all flats and side rooms. Very safe XP and scrap with minimal PvP if you move slowly and listen for footsteps.",
+      "Work the quieter back streets and inner courtyards, clearing one side of each alley at a time and avoiding major plazas unless you have to cross them.",
+  },
+
+  // SPACEPORT
+  {
+    id: "spaceport-boss-container-lanes",
+    map: "Spaceport",
+    name: "Container boss lanes",
+    style: "Boss hunting",
+    risk: "High",
+    estXp: "38 000 – 60 000 XP",
+    timePerRun: "17 – 24 minutes",
+    description:
+      "Use the rows of containers to drag bosses into tight firing lanes where rockets and beams are easier to break with solid cover.",
+    recommendedSpawns: ["spaceport-containers"],
+  },
+  {
+    id: "spaceport-loot-terminal-to-containers",
+    map: "Spaceport",
+    name: "Terminal to containers loot sweep",
+    style: "Loot running",
+    risk: "Medium",
+    estXp: "26 000 – 42 000 XP",
+    timePerRun: "16 – 23 minutes",
+    description:
+      "Start in the terminal forecourt, sweep ticket halls and back offices, then drift towards Container Storage to finish in safer lanes near extraction.",
+    recommendedSpawns: ["spaceport-terminal", "spaceport-containers"],
+  },
+  {
+    id: "spaceport-stealth-side-buildings",
+    map: "Spaceport",
+    name: "Side building stealth crawl",
+    style: "Stealth",
+    risk: "Low",
+    estXp: "18 000 – 30 000 XP",
+    timePerRun: "18 – 26 minutes",
+    description:
+      "Focus on smaller offices, maintenance buildings and upper walkways, keeping to cover and avoiding Launch Tower and main assembly floors.",
+  },
+
+  // THE DAM
+  {
+    id: "dam-boss-tower-and-domes",
+    map: "The Dam",
+    name: "Control Tower and dome bosses",
+    style: "Boss hunting",
+    risk: "High",
+    estXp: "36 000 – 55 000 XP",
+    timePerRun: "18 – 26 minutes",
+    description:
+      "Rotate between Control Tower balconies and the nearby domes, taking advantage of vertical cover to handle bosses and heavy ARCs.",
+    recommendedSpawns: ["dam-control-tower"],
+  },
+  {
+    id: "dam-loot-residential-apartments",
+    map: "The Dam",
+    name: "Residential apartment chain",
+    style: "Loot running",
+    risk: "Medium",
+    estXp: "24 000 – 38 000 XP",
+    timePerRun: "16 – 22 minutes",
+    description:
+      "Chain residential blocks, garages and small shops, tapping every container then cutting to a nearby extraction on the village edge.",
+    recommendedSpawns: ["dam-residential"],
+  },
+  {
+    id: "dam-stealth-village-side",
+    map: "The Dam",
+    name: "Quiet village stealth route",
+    style: "Stealth",
+    risk: "Low",
+    estXp: "17 000 – 27 000 XP",
+    timePerRun: "18 – 25 minutes",
+    description:
+      "Stay on the quieter half of the village, clearing one side street at a time and using buildings as shields from Control Tower lines.",
+    recommendedSpawns: ["dam-residential"],
+  },
+
+  // BLUE GATE
+  {
+    id: "blue-boss-tunnel-funnels",
+    map: "Blue Gate",
+    name: "Tunnel funnel bosses",
+    style: "Boss hunting",
+    risk: "High",
+    estXp: "34 000 – 52 000 XP",
+    timePerRun: "17 – 24 minutes",
+    description:
+      "Work the lower tunnels and entrances, funnelling bosses and heavy packs through choke points where you can cut them down safely.",
+    recommendedSpawns: ["blue-tunnel-mouth"],
+  },
+  {
+    id: "blue-loot-village-ring",
+    map: "Blue Gate",
+    name: "Village ring loot run",
+    style: "Loot running",
+    risk: "Medium",
+    estXp: "23 000 – 36 000 XP",
+    timePerRun: "15 – 22 minutes",
+    description:
+      "Circle the outer village, clearing houses and sheds while limiting time spent in the open valley floor.",
+    recommendedSpawns: ["blue-village"],
+  },
+  {
+    id: "blue-stealth-tunnel-and-huts",
+    map: "Blue Gate",
+    name: "Tunnel and hut stealth path",
+    style: "Stealth",
+    risk: "Low",
+    estXp: "18 000 – 28 000 XP",
+    timePerRun: "18 – 26 minutes",
+    description:
+      "Alternate between small huts on the slopes and short tunnel segments, always keeping rock and terrain between you and the valley.",
+    recommendedSpawns: ["blue-village", "blue-tunnel-mouth"],
+  },
+
+  // STELLA MONTIS
+  {
+    id: "stella-boss-assembly-floor",
+    map: "Stella Montis",
+    name: "Assembly floor boss circuit",
+    style: "Boss hunting",
+    risk: "High",
+    estXp: "35 000 – 50 000 XP",
+    timePerRun: "18 – 25 minutes",
+    description:
+      "Rotate around the Assembly workshops and heavy machinery areas, using pillars, rails and staircases to manage bosses and Shredders.",
+    recommendedSpawns: ["stella-assembly"],
+  },
+  {
+    id: "stella-loot-medical-and-archives",
+    map: "Stella Montis",
+    name: "Medical to archives loot path",
+    style: "Loot running",
+    risk: "Medium",
+    estXp: "24 000 – 40 000 XP",
+    timePerRun: "18 – 26 minutes",
+    description:
+      "Start in Medical Research, sweep labs and consulting rooms, then drift into quieter archive wings for extra containers and bodies.",
+    recommendedSpawns: ["stella-medical"],
+  },
+  {
+    id: "stella-stealth-medical-crawl",
+    map: "Stella Montis",
+    name: "Medical crawl stealth loop",
+    style: "Stealth",
+    risk: "Low",
+    estXp: "18 000 – 30 000 XP",
+    timePerRun: "20 – 28 minutes",
+    description:
+      "Methodically clear the medical wing corridor by corridor, closing doors and never holding long sightlines for too long.",
+    recommendedSpawns: ["stella-medical"],
   },
 ];
-

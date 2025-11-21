@@ -178,7 +178,7 @@ export const mapSummaries: MapSummary[] = [
     description:
       "Compact industrial and swamp map with Control Tower, Research & Administration, Scrapyard, Hydroponic Dome Complex and scattered residential blocks like Pale Apartments, Ruby Residence and Pattern House.",
     soloNote:
-      "Stealth farming favours Scrapyard and South Swamp Outpost with exits at Swamp Extraction or North Complex. High risk loot runs focus on Control Tower, R&A, Water Treatment Control and the domes.",
+      "Stealth farming favours Scrapyard and South Swamp Outpost with exits at Swamp Extraction or North Complex. High risk loot runs focus on Control Tower, Research & Administration, Dam Surveillance Room, Water Treatment Control and the domes.",
   },
   {
     id: "Buried City",
@@ -186,15 +186,15 @@ export const mapSummaries: MapSummary[] = [
     description:
       "Desert city map with residential towers like Grandioso Apartments, transport hubs such as Marano Station and Marano Park, plus scattered industrial and residential zones.",
     soloNote:
-      "Grandioso Apartments offer blueprint farming and high value loot. Marano Station and Marano Park provide quest items and containers. Avoid open streets and focus on indoor routes.",
+      "Grandioso Apartments and the rooftop zipline blueprint room offer blueprint farming and high value loot. Marano Station and Marano Park Parking Garage provide quest items and containers. Avoid open streets and focus on indoor routes.",
   },
   {
     id: "Spaceport",
     label: "Spaceport",
     description:
-      "Large industrial facility with Container Storage, Shipping Warehouse, Vehicle Maintenance, Rocket Assembly, Launch Tower and the Seed Vault.",
+      "Large industrial facility with Container Storage, Shipping Warehouse, Vehicle Maintenance, Rocket Assembly, Launch Tower, Pipe Walk and the Seed Vault.",
     soloNote:
-      "Container Storage and Shipping Warehouse are high value but contested. Vehicle Maintenance and outer checkpoints offer safer early loot. Rocket Assembly and Launch Tower are endgame hotspots.",
+      "Container Storage and Shipping Warehouse are high value but contested. Vehicle Maintenance and outer checkpoint rooms offer safer early loot. Rocket Assembly, Pipe Walk and Launch Tower are endgame hotspots.",
   },
   {
     id: "Blue Gate",

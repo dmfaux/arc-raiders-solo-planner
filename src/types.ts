@@ -1,4 +1,5 @@
 export type RunType = "Boss hunt" | "Loot run" | "Stealth farm";
+export type SpawnRegionId = string;
 
 export type MapId =
   | "Buried City"
@@ -44,6 +45,7 @@ export type AdaptivePlan = {
   runType: RunType;
   map: MapId;
   modifier: MapModifier | "Any";
+  spawnRegion?: SpawnRegionId | "Any";
   title: string;
   summary: string;
   keyActions: string[];
@@ -53,7 +55,10 @@ export type AdaptivePlan = {
   poiRoute?: PoiStop[];
 };
 
-export type RouteStyle = "Boss hunting" | "Loot running" | "Stealth";
+export type RouteStyle =
+  | "Boss hunting"
+  | "Loot running"
+  | "Stealth";
 
 export type Route = {
   id: string;
@@ -87,3 +92,12 @@ export type SectionId =
   | "general-tips"
   | "xp-planner";
 
+export interface SpawnRegion {
+  id: SpawnRegionId;
+  map: MapId;
+  label: string;
+  /** What the player will recognise on the in game map. */
+  exampleCallouts: string[];
+  /** Short text you can surface in the UI as helper text or tooltip. */
+  notes: string;
+}
