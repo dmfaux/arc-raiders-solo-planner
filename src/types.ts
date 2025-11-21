@@ -92,8 +92,7 @@ export type SectionId =
   | "general-tips"
   | "xp-planner"
   | "recyclables"
-  | "recycling-planner"
-  | "recyclables-planner";
+  | "recycling-planner";
 
 export interface SpawnRegion {
   id: SpawnRegionId;

@@ -44,7 +44,7 @@ function RecyclablesPlannerSection() {
         <div className="w-1 h-12 bg-cyan-400" />
         <div>
           <h2 className="text-3xl font-bold text-slate-100">
-            Recyclables Planner
+            Recycling Planner
           </h2>
           <div className="text-sm text-cyan-400 uppercase tracking-wider mt-1">
             Crafting Breakdown

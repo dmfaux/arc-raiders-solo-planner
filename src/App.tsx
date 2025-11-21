@@ -11,11 +11,8 @@ import {
   Info,
   Calculator,
   Recycle,
-  RotateCcw,
 } from "lucide-react";
 import RecyclablesSection from "./sections/RecyclablesSection";
-import RecyclingPlannerSection from "./sections/RecyclingPlannerSection";
-import SVGComponent from "./components/SVGComponent";
 import OverviewSection from "./components/OverviewSection";
 import RunAssistantSection from "./components/RunAssistantSection";
 import FarmingRoutesSection from "./components/FarmingRoutesSection";
@@ -52,11 +49,6 @@ const sections: { id: SectionId; label: string; icon: any }[] =
     {
       id: "recycling-planner",
       label: "Recycling Planner",
-      icon: RotateCcw,
-    },
-    {
-      id: "recyclables-planner",
-      label: "Recyclables Planner",
       icon: Recycle,
     },
   ];
@@ -191,9 +183,6 @@ function App() {
           <RecyclablesSection />
         )}
         {activeSection === "recycling-planner" && (
-          <RecyclingPlannerSection />
-        )}
-        {activeSection === "recyclables-planner" && (
           <RecyclablesPlannerSection />
         )}
       </main>
