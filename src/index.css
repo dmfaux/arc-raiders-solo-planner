@@ -34,19 +34,29 @@
     50% { opacity: 0.5; }
   }
 
-  /* Subtle scan line effect */
-  body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(to bottom, transparent, rgba(6, 182, 212, 0.3), transparent);
-    animation: scan 8s linear infinite;
-    pointer-events: none;
-    z-index: 50;
-    box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+  /* Subtle scan line effect - Desktop only */
+  @media (min-width: 1024px) {
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to bottom, transparent, rgba(6, 182, 212, 0.3), transparent);
+      animation: scan 8s linear infinite;
+      pointer-events: none;
+      z-index: 50;
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+    }
+  }
+
+  /* Disable scan line animation */
+  @media (min-width: 1024px) {
+    body.scan-line-disabled::after {
+      animation: none;
+      opacity: 0;
+    }
   }
 
   @keyframes scan {

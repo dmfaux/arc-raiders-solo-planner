@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   SectionId,
 } from "./types";
@@ -64,11 +64,20 @@ const sections: { id: SectionId; label: string; icon: any }[] =
 function App() {
   const [activeSection, setActiveSection] =
     useState<SectionId>("overview");
+  const [scanLineEnabled, setScanLineEnabled] = useState(true);
+
+  useEffect(() => {
+    if (scanLineEnabled) {
+      document.body.classList.remove("scan-line-disabled");
+    } else {
+      document.body.classList.add("scan-line-disabled");
+    }
+  }, [scanLineEnabled]);
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row relative bg-gradient-to-t from-cyan-950 to-black">
       {/* Sidebar - Desktop */}
-      <aside className="hidden lg:flex lg:flex-col lg:w-72 lg:bg-black/50 lg:backdrop-blur-md lg:border-r lg:border-cyan-900/30 lg:p-6 lg:sticky lg:top-0 lg:h-screen lg:shadow-2xl">
+      <aside className="hidden lg:flex lg:flex-col lg:w-72 lg:bg-black/50 lg:backdrop-blur-md lg:border-r lg:border-cyan-900/30 lg:p-6 lg:sticky lg:top-0 lg:h-screen lg:shadow-2xl lg:overflow-y-auto">
         {/* Header with tactical styling */}
         <div className="mb-8 pb-6 border-b border-cyan-900/30 flex flex-col items-center justify-center">
           <div className="flex items-center justify-center gap-2 mb-3">
@@ -116,11 +125,20 @@ function App() {
         </nav>
 
         {/* Footer info */}
-        <div className="mt-6 pt-6 border-t border-cyan-900/30 text-xs text-slate-500 space-y-1">
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping" />
-            <span>System Online</span>
-          </div>
+        <div className="mt-6 pt-6 border-t border-cyan-900/30 text-xs text-slate-500">
+          <button
+            onClick={() => setScanLineEnabled(!scanLineEnabled)}
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer w-full"
+          >
+            <div
+              className={`w-1.5 h-1.5 rounded-full ${
+                scanLineEnabled
+                  ? "bg-emerald-400 animate-ping"
+                  : "bg-red-500"
+              }`}
+            />
+            <span>{scanLineEnabled ? "System Online" : "System Offline"}</span>
+          </button>
         </div>
       </aside>
 
