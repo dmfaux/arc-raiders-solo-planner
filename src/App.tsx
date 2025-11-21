@@ -26,8 +26,13 @@ import {
   Zap,
   Info,
   Calculator,
+  Recycle,
+  RotateCcw,
 } from "lucide-react";
 import { spawnRegionsByMap } from "./data/spawn";
+import RecyclablesSection from "./sections/RecyclablesSection";
+import RecyclingPlannerSection from "./sections/RecyclingPlannerSection";
+import { recyclableAreas } from "./data/recyclables";
 
 const XP_PER_LEVEL = 10000;
 
@@ -53,6 +58,12 @@ const sections: { id: SectionId; label: string; icon: any }[] =
     { id: "shortcuts", label: "Shortcuts", icon: Zap },
     { id: "general-tips", label: "General Tips", icon: Info },
     { id: "xp-planner", label: "XP Planner", icon: Calculator },
+    { id: "recyclables", label: "Recyclables", icon: Recycle },
+    {
+      id: "recycling-planner",
+      label: "Recycling Planner",
+      icon: RotateCcw,
+    },
   ];
 
 const runTypes = [
@@ -443,6 +454,12 @@ function App() {
           <GeneralTipsSection />
         )}
         {activeSection === "xp-planner" && <XpPlannerSection />}
+        {activeSection === "recyclables" && (
+          <RecyclablesSection />
+        )}
+        {activeSection === "recycling-planner" && (
+          <RecyclingPlannerSection />
+        )}
       </main>
     </div>
   );
@@ -1267,6 +1284,84 @@ function RunAssistantSection() {
           </div>
         </Card>
       )}
+
+      {/* Nearby recyclables areas */}
+      {(() => {
+        if (!selectedMap || (!selectedSpawnRegion && !primaryPlan && !fallbackPlan)) {
+          return null;
+        }
+
+        const nearbyRecyclables = recyclableAreas.filter((area) => {
+          if (area.map !== selectedMap) return false;
+          if (
+            selectedSpawnRegion &&
+            area.regionId &&
+            area.regionId !== selectedSpawnRegion
+          ) {
+            return false;
+          }
+          return area.density === "High" || area.density === "Very High";
+        });
+
+        if (nearbyRecyclables.length === 0) return null;
+
+        return (
+          <Card>
+            <div className="flex items-start gap-3 mb-4">
+              <Recycle className="w-5 h-5 text-cyan-400 mt-1" />
+              <div>
+                <h3 className="text-xl font-semibold text-cyan-300 uppercase tracking-wide">
+                  Nearby Recyclables Areas
+                </h3>
+                <p className="text-sm text-slate-400 mt-1">
+                  High value recyclables pockets you should tap on this
+                  pattern
+                </p>
+              </div>
+            </div>
+            <div className="space-y-3">
+              {nearbyRecyclables.slice(0, 3).map((area) => {
+                const regionLabel = area.regionId
+                  ? (
+                      spawnRegionsByMap[selectedMap] ?? []
+                    ).find((r) => r.id === area.regionId)?.label
+                  : undefined;
+
+                return (
+                  <div
+                    key={area.id}
+                    className="bg-slate-900/40 p-4 rounded border border-slate-700/30"
+                  >
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      <Pill variant="info">{area.name}</Pill>
+                      {regionLabel && (
+                        <Pill variant="default">{regionLabel}</Pill>
+                      )}
+                      <Pill
+                        variant={
+                          area.density === "Very High"
+                            ? "success"
+                            : "info"
+                        }
+                      >
+                        {area.density}
+                      </Pill>
+                      {area.approximateYield && (
+                        <Pill variant="default" className="text-xs">
+                          {area.approximateYield}
+                        </Pill>
+                      )}
+                    </div>
+                    <p className="text-sm text-slate-300 leading-relaxed">
+                      {area.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </Card>
+        );
+      })()}
 
       {alternativePlans.length > 0 && primaryPlan && (
         <Card>

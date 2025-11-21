@@ -90,7 +90,9 @@ export type SectionId =
   | "loadouts"
   | "shortcuts"
   | "general-tips"
-  | "xp-planner";
+  | "xp-planner"
+  | "recyclables"
+  | "recycling-planner";
 
 export interface SpawnRegion {
   id: SpawnRegionId;
@@ -100,4 +102,17 @@ export interface SpawnRegion {
   exampleCallouts: string[];
   /** Short text you can surface in the UI as helper text or tooltip. */
   notes: string;
+}
+
+export type RecyclableDensity = "Low" | "Medium" | "High" | "Very High";
+
+export interface RecyclableArea {
+  id: string;
+  map: MapId;
+  regionId?: SpawnRegionId;
+  name: string;
+  density: RecyclableDensity;
+  description: string;
+  approximateYield?: string;
+  notes?: string;
 }
