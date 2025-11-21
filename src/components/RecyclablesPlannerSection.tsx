@@ -53,6 +53,9 @@ function RecyclablesPlannerSection() {
       </div>
 
       <Card variant="tactical">
+        <p className="text-sm text-slate-400 mb-3">
+          Pick a crafting component you want, and this tool will suggest which loot items to recycle to break down into that part. Values are approximate and based on your local data, not live game servers.
+        </p>
         <h3 className="text-xl font-semibold mb-4 text-cyan-300 uppercase tracking-wide">
           Target Part Selection
         </h3>
@@ -68,6 +71,7 @@ function RecyclablesPlannerSection() {
                 .map((part) => (
                   <button
                     key={part.id}
+                    type="button"
                     onClick={() => setSelectedPartId(part.id)}
                     className={`px-3 py-1 rounded-full text-xs border ${
                       selectedPartId === part.id
@@ -79,6 +83,9 @@ function RecyclablesPlannerSection() {
                   </button>
                 ))}
             </div>
+            <p className="mt-1 text-[11px] text-slate-500">
+              Tap a favourite to switch the target component quickly.
+            </p>
           </div>
         )}
         <div>
@@ -88,6 +95,7 @@ function RecyclablesPlannerSection() {
             </label>
             {selectedPartId && (
               <button
+                type="button"
                 onClick={() => togglePartFavourite(selectedPartId)}
                 className="ml-2 p-1 rounded-full border border-slate-700/60 bg-slate-900/60 hover:border-amber-400/70 hover:bg-slate-800/80"
                 aria-label={
@@ -120,6 +128,12 @@ function RecyclablesPlannerSection() {
           </select>
         </div>
 
+        {!selectedPartId && (
+          <p className="mt-2 text-xs text-slate-500">
+            Choose a target component to see suggested items to break down.
+          </p>
+        )}
+
         <div className="mt-4">
           <label className="block text-sm font-medium mb-2 uppercase tracking-wider text-slate-400">
             Amount Needed (optional)
@@ -147,22 +161,11 @@ function RecyclablesPlannerSection() {
         )}
       </Card>
 
-      {!selectedPartId && (
-        <Card>
-          <div className="flex items-center gap-3">
-            <p className="text-slate-400">
-              Select a target part to see recycling options.
-            </p>
-          </div>
-        </Card>
-      )}
-
       {selectedPartId && sortedRecommendations.length === 0 && (
         <Card>
-          <div className="flex items-center gap-3">
-            <p className="text-slate-400">
-              No known recyclable items for this part in the local data.
-            </p>
+          <div className="mt-4 bg-slate-900/50 border border-slate-700/60 rounded p-4 text-sm text-slate-300">
+            No known items in your current data break down into <span className="text-cyan-300 font-semibold">{selectedPart?.name}</span>. 
+            Try a different component or update your recyclables mapping as the game evolves.
           </div>
         </Card>
       )}

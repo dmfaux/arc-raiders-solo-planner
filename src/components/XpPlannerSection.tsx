@@ -279,6 +279,15 @@ export default function XpPlannerSection() {
             , these routes match your risk and throughput.
           </p>
 
+          {hasValidPlan && suggestedRoutes.length === 0 && (
+            <Card>
+              <p className="text-sm text-slate-400">
+                A valid plan is calculated, but there are no matching routes in your current data for this grind length and risk profile. 
+                Add more routes to your farming database, or relax your filters.
+              </p>
+            </Card>
+          )}
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {suggestedRoutes.map((route) => (
               <Card key={route.id} className="bg-slate-900/60">
@@ -325,10 +334,8 @@ export default function XpPlannerSection() {
 
       <Card>
         <p className="text-sm text-slate-400 italic">
-          Note: This is approximate and based on a simple flat
-          XP model. Routes are suggested by grind length, solo
-          experience band and risk profile, not exact XP
-          mathematics.
+          Note: This is approximate and based on a simple flat XP model. Routes are suggested by grind length, solo experience band and risk profile, not exact XP maths. 
+          Treat the numbers as a rough compass rather than precise timing.
         </p>
       </Card>
     </div>

@@ -348,6 +348,8 @@ export default function RunAssistantSection() {
         })()
       : null;
 
+  const hasPlan = Boolean(primaryPlan || fallbackPlan);
+
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-4 mb-8">
@@ -421,6 +423,9 @@ export default function RunAssistantSection() {
           <h3 className="text-xl font-semibold mb-4 text-cyan-300 uppercase tracking-wide">
             Step 2: Select Map, Spawn and Modifier
           </h3>
+          <p className="text-xs text-slate-400 mb-4">
+            Use the spawn area to roughly describe where you loaded into the map, so the pattern can adapt to nearby lanes and points of interest.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium mb-2 uppercase tracking-wider text-slate-400">
@@ -504,6 +509,20 @@ export default function RunAssistantSection() {
               </div>
             )}
           </div>
+          {selectedRunType && !selectedMap && (
+            <p className="text-xs text-slate-500 mt-2">
+              Choose a map first, then refine with spawn area and active event modifiers.
+            </p>
+          )}
+        </Card>
+      )}
+
+      {selectedRunType && selectedMap && !hasPlan && (
+        <Card>
+          <p className="text-sm text-slate-400">
+            There is no specific pattern yet for this combination of run type, map and event in your local data. 
+            Try a different modifier or spawn area, or fall back to your own standard route.
+          </p>
         </Card>
       )}
 

@@ -26,6 +26,70 @@ export default function FarmingRoutesSection() {
     );
   }
 
+  if (showFavouritesOnly && filteredRoutes.length === 0) {
+    return (
+      <div className="space-y-6">
+        <div className="flex items-center gap-4 mb-8">
+          <div className="w-1 h-12 bg-cyan-400" />
+          <div>
+            <h2 className="text-3xl font-bold text-slate-100">
+              Farming Routes
+            </h2>
+            <div className="text-sm text-cyan-400 uppercase tracking-wider mt-1">
+              Route Database
+            </div>
+          </div>
+        </div>
+
+        <Card variant="tactical">
+          <div className="flex flex-wrap gap-2 mb-6">
+            {(
+              [
+                "All",
+                "Boss hunting",
+                "Loot running",
+                "Stealth",
+              ] as const
+            ).map((style) => (
+              <button
+                key={style}
+                onClick={() =>
+                  setFilterStyle(
+                    style === "All"
+                      ? "All"
+                      : (style as RouteStyle),
+                  )
+                }
+                className={`px-4 py-2 rounded transition-all uppercase tracking-wide text-sm ${
+                  filterStyle === style
+                    ? "bg-cyan-600 text-white shadow-lg"
+                    : "bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 border border-slate-700/30"
+                }`}
+              >
+                {style}
+              </button>
+            ))}
+            <button
+              onClick={() => setShowFavouritesOnly((prev) => !prev)}
+              className={`px-4 py-2 rounded transition-all uppercase tracking-wide text-sm flex items-center gap-2 ${
+                showFavouritesOnly
+                  ? "bg-amber-500 text-black shadow-lg"
+                  : "bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 border border-slate-700/30"
+              }`}
+            >
+              <Star className={`w-4 h-4 ${showFavouritesOnly ? "fill-current" : ""}`} />
+              Favourites
+            </button>
+          </div>
+
+          <p className="text-sm text-slate-400">
+            You have no favourite routes yet. Use the star icon on any route to mark it as a favourite, then toggle the favourites filter to focus on them.
+          </p>
+        </Card>
+      </div>
+    );
+  }
+
   const getRiskVariant = (risk: string) => {
     if (risk === "Low") return "success";
     if (risk === "Medium") return "warning";
@@ -100,6 +164,7 @@ export default function FarmingRoutesSection() {
                   <Pill variant="info">{route.style}</Pill>
                 </div>
                 <button
+                  type="button"
                   onClick={() => toggleFavourite(route.id)}
                   className="ml-2 p-1 rounded-full border border-slate-700/60 bg-slate-900/60 hover:border-amber-400/70 hover:bg-slate-800/80"
                   aria-label={isFavourite(route.id) ? "Remove from favourites" : "Add to favourites"}
