@@ -1,5 +1,6 @@
 import { Card } from "./Card";
 import { Target, Calculator } from "lucide-react";
+import { RunLogPanel } from "./RunLogPanel";
 
 export default function OverviewSection() {
   return (
@@ -109,6 +110,10 @@ export default function OverviewSection() {
             </ul>
           </div>
         </div>
+      </Card>
+
+      <Card className="mt-4">
+        <RunLogPanel />
       </Card>
     </div>
   );
