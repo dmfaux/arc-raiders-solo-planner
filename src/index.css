@@ -101,6 +101,7 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #334155;
   }
+
 }
 
 @layer utilities {
@@ -242,5 +243,56 @@
   @keyframes flicker {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.8; }
+  }
+
+  .crt-scanlines {
+    position: relative !important;
+  }
+
+  .crt-scanlines::before {
+    content: '' !important;
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.6) 0px,
+        rgba(0, 0, 0, 0.6) 1px,
+        transparent 1px,
+        transparent 3px
+    ) !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    mix-blend-mode: overlay !important;
+  }
+
+  .crt-scanlines::after {
+    content: '' !important;
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(6, 182, 212, 0.1) 0px,
+        transparent 1px,
+        transparent 3px
+    ) !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    animation: scanlines-anim 1s linear infinite !important;
+    mix-blend-mode: screen !important;
+  }
+
+  /* Disable CRT scanlines when scan line is disabled */
+  body.scan-line-disabled .crt-scanlines::before,
+  body.scan-line-disabled .crt-scanlines::after {
+    display: none !important;
+  }
+
+  @keyframes scanlines-anim {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(3px); }
   }
 }

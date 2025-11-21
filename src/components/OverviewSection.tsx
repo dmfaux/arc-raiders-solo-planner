@@ -59,7 +59,7 @@ export default function OverviewSection() {
         </div>
       </Card>
 
-      <Card>
+      {/* <Card>
         <div className="flex items-start gap-3 mb-4">
           <Calculator className="w-5 h-5 text-amber-400 mt-1" />
           <div>
@@ -110,7 +110,7 @@ export default function OverviewSection() {
             </ul>
           </div>
         </div>
-      </Card>
+      </Card> */}
 
       <Card className="mt-4">
         <RunLogPanel />

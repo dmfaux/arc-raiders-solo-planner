@@ -64,7 +64,7 @@ const sections: { id: SectionId; label: string; icon: any }[] =
 function App() {
   const [activeSection, setActiveSection] =
     useState<SectionId>("overview");
-  const [scanLineEnabled, setScanLineEnabled] = useState(true);
+  const [scanLineEnabled, setScanLineEnabled] = useState(false);
 
   useEffect(() => {
     if (scanLineEnabled) {
@@ -75,7 +75,7 @@ function App() {
   }, [scanLineEnabled]);
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row relative bg-gradient-to-t from-cyan-950 to-black">
+    <div className="min-h-screen flex flex-col lg:flex-row relative crt-scanlines">
       {/* Sidebar - Desktop */}
       <aside className="hidden lg:flex lg:flex-col lg:w-72 lg:bg-black/50 lg:backdrop-blur-md lg:border-r lg:border-cyan-900/30 lg:p-6 lg:sticky lg:top-0 lg:h-screen lg:shadow-2xl lg:overflow-y-auto">
         {/* Header with tactical styling */}
@@ -129,6 +129,7 @@ function App() {
           <button
             onClick={() => setScanLineEnabled(!scanLineEnabled)}
             className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer w-full"
+            title="Toggle page animations"
           >
             <div
               className={`w-1.5 h-1.5 rounded-full ${
@@ -144,7 +145,7 @@ function App() {
 
       {/* Mobile Navigation */}
       <div className="lg:hidden bg-black/90 backdrop-blur-md border-b border-cyan-900/30 p-4 sticky top-0 z-50">
-        <div className="flex items-center gap-2 mb-3">
+        <div className="flex items-center gap-2 mb-3 z-10">
           <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
           <h1 className="text-xl font-bold text-cyan-400">
             ARC RAIDERS
