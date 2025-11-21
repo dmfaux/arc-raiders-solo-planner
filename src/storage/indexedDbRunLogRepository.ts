@@ -90,6 +90,40 @@ export class IndexedDbRunLogRepository implements RunLogRepository {
     });
   }
 
+  async update(entry: RunLogEntry): Promise<void> {
+    const db = await openDatabase();
+    const store = getObjectStore(db, "readwrite");
+
+    return new Promise((resolve, reject) => {
+      const request = store.put(entry);
+
+      request.onerror = () => {
+        reject(request.error);
+      };
+
+      request.onsuccess = () => {
+        resolve();
+      };
+    });
+  }
+
+  async delete(id: string): Promise<void> {
+    const db = await openDatabase();
+    const store = getObjectStore(db, "readwrite");
+
+    return new Promise((resolve, reject) => {
+      const request = store.delete(id);
+
+      request.onerror = () => {
+        reject(request.error);
+      };
+
+      request.onsuccess = () => {
+        resolve();
+      };
+    });
+  }
+
   async clear(): Promise<void> {
     const db = await openDatabase();
     const store = getObjectStore(db, "readwrite");

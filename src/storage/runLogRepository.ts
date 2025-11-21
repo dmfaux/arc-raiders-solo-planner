@@ -17,6 +17,8 @@ export interface RunLogRepository {
   add(entry: RunLogEntry): Promise<void>;
   getAll(): Promise<RunLogEntry[]>;
   getByMap(map: MapId): Promise<RunLogEntry[]>;
+  update(entry: RunLogEntry): Promise<void>;
+  delete(id: string): Promise<void>;
   clear(): Promise<void>;
 }
 

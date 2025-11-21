@@ -1,8 +1,30 @@
+import { useState } from "react";
 import { Card } from "./Card";
-import { Target, Calculator } from "lucide-react";
-import { RunLogPanel } from "./RunLogPanel";
+import { Target, Plus } from "lucide-react";
+import { RunLogDialog } from "./RunLogDialog";
+import { RecentRunsTable } from "./RecentRunsTable";
+import { Button } from "./ui/button";
+import type { RunLogEntry } from "../storage/runLogRepository";
 
 export default function OverviewSection() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [editingEntry, setEditingEntry] = useState<RunLogEntry | null>(null);
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  function handleAddClick() {
+    setEditingEntry(null);
+    setDialogOpen(true);
+  }
+
+  function handleEdit(entry: RunLogEntry) {
+    setEditingEntry(entry);
+    setDialogOpen(true);
+  }
+
+  function handleSuccess() {
+    setRefreshKey((k) => k + 1);
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-4 mb-8">
@@ -113,8 +135,34 @@ export default function OverviewSection() {
       </Card> */}
 
       <Card className="mt-4">
-        <RunLogPanel />
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h3 className="text-xl font-semibold text-cyan-300 uppercase tracking-wide mb-1">
+                Recent Runs
+              </h3>
+              <p className="text-xs text-slate-400">
+                Track your raid history locally
+              </p>
+            </div>
+            <Button
+              onClick={handleAddClick}
+              className="bg-cyan-950/50 border border-cyan-700/50 text-cyan-300 hover:bg-cyan-950/70 hover:border-cyan-600/50 hover:shadow-[0_0_8px_rgba(37,240,255,0.3)] transition-all uppercase tracking-wider text-sm font-medium flex items-center gap-2"
+            >
+              <Plus className="w-4 h-4" />
+              Add New Run Log
+            </Button>
+          </div>
+        </div>
+        <RecentRunsTable key={refreshKey} onEdit={handleEdit} limit={10} />
       </Card>
+
+      <RunLogDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        entry={editingEntry}
+        onSuccess={handleSuccess}
+      />
     </div>
   );
 }
