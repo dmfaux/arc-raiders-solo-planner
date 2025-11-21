@@ -3,16 +3,28 @@ import { RouteStyle } from "../types";
 import { routes } from "../data/routes";
 import { Card } from "./Card";
 import { Pill } from "./Pill";
+import { useFavourites } from "../hooks/useFavourites";
+import { FAV_ROUTES_KEY } from "../utils/localFavourites";
+import { Star } from "lucide-react";
 
 export default function FarmingRoutesSection() {
   const [filterStyle, setFilterStyle] = useState<
     RouteStyle | "All"
   >("All");
+  const [showFavouritesOnly, setShowFavouritesOnly] = useState(false);
 
-  const filteredRoutes =
+  const { favouriteIds, isFavourite, toggleFavourite } = useFavourites(FAV_ROUTES_KEY);
+
+  let filteredRoutes =
     filterStyle === "All"
       ? routes
       : routes.filter((route) => route.style === filterStyle);
+
+  if (showFavouritesOnly) {
+    filteredRoutes = filteredRoutes.filter((route) =>
+      isFavourite(route.id)
+    );
+  }
 
   const getRiskVariant = (risk: string) => {
     if (risk === "Low") return "success";
@@ -63,17 +75,43 @@ export default function FarmingRoutesSection() {
               {style}
             </button>
           ))}
+          <button
+            onClick={() => setShowFavouritesOnly((prev) => !prev)}
+            className={`px-4 py-2 rounded transition-all uppercase tracking-wide text-sm flex items-center gap-2 ${
+              showFavouritesOnly
+                ? "bg-amber-500 text-black shadow-lg"
+                : "bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 border border-slate-700/30"
+            }`}
+          >
+            <Star className={`w-4 h-4 ${showFavouritesOnly ? "fill-current" : ""}`} />
+            Favourites
+          </button>
         </div>
 
         <div className="space-y-4">
           {filteredRoutes.map((route) => (
             <Card key={route.id} className="bg-slate-900/50">
-              <div className="flex flex-wrap gap-2 mb-4">
-                <Pill>{route.map}</Pill>
-                <Pill variant={getRiskVariant(route.risk)}>
-                  {route.risk} Risk
-                </Pill>
-                <Pill variant="info">{route.style}</Pill>
+              <div className="flex justify-between items-start mb-2">
+                <div className="flex flex-wrap gap-2">
+                  <Pill>{route.map}</Pill>
+                  <Pill variant={getRiskVariant(route.risk)}>
+                    {route.risk} Risk
+                  </Pill>
+                  <Pill variant="info">{route.style}</Pill>
+                </div>
+                <button
+                  onClick={() => toggleFavourite(route.id)}
+                  className="ml-2 p-1 rounded-full border border-slate-700/60 bg-slate-900/60 hover:border-amber-400/70 hover:bg-slate-800/80"
+                  aria-label={isFavourite(route.id) ? "Remove from favourites" : "Add to favourites"}
+                >
+                  <Star
+                    className={`w-4 h-4 ${
+                      isFavourite(route.id)
+                        ? "text-amber-400 fill-amber-400"
+                        : "text-slate-500"
+                    }`}
+                  />
+                </button>
               </div>
               <h3 className="text-xl font-semibold mb-3 text-cyan-300">
                 {route.name}

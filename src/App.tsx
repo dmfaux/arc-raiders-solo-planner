@@ -24,6 +24,7 @@ import LoadoutsSection from "./components/LoadoutsSection";
 import ShortcutsSection from "./components/ShortcutsSection";
 import GeneralTipsSection from "./components/GeneralTipsSection";
 import XpPlannerSection from "./components/XpPlannerSection";
+import RecyclablesPlannerSection from "./components/RecyclablesPlannerSection";
 
 const sections: { id: SectionId; label: string; icon: any }[] =
   [
@@ -52,6 +53,11 @@ const sections: { id: SectionId; label: string; icon: any }[] =
       id: "recycling-planner",
       label: "Recycling Planner",
       icon: RotateCcw,
+    },
+    {
+      id: "recyclables-planner",
+      label: "Recyclables Planner",
+      icon: Recycle,
     },
   ];
 
@@ -167,6 +173,9 @@ function App() {
         )}
         {activeSection === "recycling-planner" && (
           <RecyclingPlannerSection />
+        )}
+        {activeSection === "recyclables-planner" && (
+          <RecyclablesPlannerSection />
         )}
       </main>
     </div>
