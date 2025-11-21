@@ -137,7 +137,7 @@ function App() {
                   : "bg-red-500"
               }`}
             />
-            <span>{scanLineEnabled ? "System Online" : "System Offline"}</span>
+            <span>{scanLineEnabled ? "Connected to Speranza" : "Disconnected from Speranza"}</span>
           </button>
         </div>
       </aside>
