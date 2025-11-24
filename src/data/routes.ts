@@ -23,7 +23,7 @@ export const routes: FarmingRoute[] = [
     name: "Santa Maria to Marano boss loop",
     style: "Boss hunting",
     risk: "High",
-    estXp: "35 000 – 55 000 XP",
+    estXp: "10 000 – 55 000 XP",
     timePerRun: "18 – 25 minutes",
     description:
       "From Santa Maria rooftops you rotate through Marano Park and the nearby tower lines, pulling Bastions and Bombardiers into lanes you can control from height.",
@@ -35,7 +35,7 @@ export const routes: FarmingRoute[] = [
     name: "Grandioso apartment circuit",
     style: "Loot running",
     risk: "Medium",
-    estXp: "25 000 – 40 000 XP",
+    estXp: "8 000 – 40 000 XP",
     timePerRun: "15 – 22 minutes",
     description:
       "Start at Grandioso offices, sweep all floors, then spiral into surrounding apartments and side streets before exiting via the nearest lift.",
@@ -47,7 +47,7 @@ export const routes: FarmingRoute[] = [
     name: "Back street stealth sweep",
     style: "Stealth",
     risk: "Low",
-    estXp: "18 000 – 28 000 XP",
+    estXp: "8 000 – 28 000 XP",
     timePerRun: "18 – 25 minutes",
     description:
       "Work the quieter back streets and inner courtyards, clearing one side of each alley at a time and avoiding major plazas unless you have to cross them.",
@@ -60,7 +60,7 @@ export const routes: FarmingRoute[] = [
     name: "Container boss lanes",
     style: "Boss hunting",
     risk: "High",
-    estXp: "38 000 – 60 000 XP",
+    estXp: "20 000 – 60 000 XP",
     timePerRun: "17 – 24 minutes",
     description:
       "Use the rows of containers to drag bosses into tight firing lanes where rockets and beams are easier to break with solid cover.",
@@ -72,7 +72,7 @@ export const routes: FarmingRoute[] = [
     name: "Terminal to containers loot sweep",
     style: "Loot running",
     risk: "Medium",
-    estXp: "26 000 – 42 000 XP",
+    estXp: "12 000 – 42 000 XP",
     timePerRun: "16 – 23 minutes",
     description:
       "Start in the terminal forecourt, sweep ticket halls and back offices, then drift towards Container Storage to finish in safer lanes near extraction.",
@@ -84,7 +84,7 @@ export const routes: FarmingRoute[] = [
     name: "Side building stealth crawl",
     style: "Stealth",
     risk: "Low",
-    estXp: "18 000 – 30 000 XP",
+    estXp: "8 000 – 30 000 XP",
     timePerRun: "18 – 26 minutes",
     description:
       "Focus on smaller offices, maintenance buildings and upper walkways, keeping to cover and avoiding Launch Tower and main assembly floors.",
@@ -97,7 +97,7 @@ export const routes: FarmingRoute[] = [
     name: "Control Tower and dome bosses",
     style: "Boss hunting",
     risk: "High",
-    estXp: "36 000 – 55 000 XP",
+    estXp: "20 000 – 55 000 XP",
     timePerRun: "18 – 26 minutes",
     description:
       "Rotate between Control Tower balconies and the nearby domes, taking advantage of vertical cover to handle bosses and heavy ARCs.",
@@ -109,7 +109,7 @@ export const routes: FarmingRoute[] = [
     name: "Residential apartment chain",
     style: "Loot running",
     risk: "Medium",
-    estXp: "24 000 – 38 000 XP",
+    estXp: "14 000 – 38 000 XP",
     timePerRun: "16 – 22 minutes",
     description:
       "Chain residential blocks, garages and small shops, tapping every container then cutting to a nearby extraction on the village edge.",
@@ -121,7 +121,7 @@ export const routes: FarmingRoute[] = [
     name: "Quiet village stealth route",
     style: "Stealth",
     risk: "Low",
-    estXp: "17 000 – 27 000 XP",
+    estXp: "7 000 – 27 000 XP",
     timePerRun: "18 – 25 minutes",
     description:
       "Stay on the quieter half of the village, clearing one side street at a time and using buildings as shields from Control Tower lines.",
@@ -135,7 +135,7 @@ export const routes: FarmingRoute[] = [
     name: "Tunnel funnel bosses",
     style: "Boss hunting",
     risk: "High",
-    estXp: "34 000 – 52 000 XP",
+    estXp: "20 000 – 52 000 XP",
     timePerRun: "17 – 24 minutes",
     description:
       "Work the lower tunnels and entrances, funnelling bosses and heavy packs through choke points where you can cut them down safely.",
@@ -147,7 +147,7 @@ export const routes: FarmingRoute[] = [
     name: "Village ring loot run",
     style: "Loot running",
     risk: "Medium",
-    estXp: "23 000 – 36 000 XP",
+    estXp: "10 000 – 36 000 XP",
     timePerRun: "15 – 22 minutes",
     description:
       "Circle the outer village, clearing houses and sheds while limiting time spent in the open valley floor.",
@@ -159,7 +159,7 @@ export const routes: FarmingRoute[] = [
     name: "Tunnel and hut stealth path",
     style: "Stealth",
     risk: "Low",
-    estXp: "18 000 – 28 000 XP",
+    estXp: "8 000 – 28 000 XP",
     timePerRun: "18 – 26 minutes",
     description:
       "Alternate between small huts on the slopes and short tunnel segments, always keeping rock and terrain between you and the valley.",
@@ -173,7 +173,7 @@ export const routes: FarmingRoute[] = [
     name: "Assembly floor boss circuit",
     style: "Boss hunting",
     risk: "High",
-    estXp: "35 000 – 50 000 XP",
+    estXp: "20 000 – 50 000 XP",
     timePerRun: "18 – 25 minutes",
     description:
       "Rotate around the Assembly workshops and heavy machinery areas, using pillars, rails and staircases to manage bosses and Shredders.",
@@ -185,7 +185,7 @@ export const routes: FarmingRoute[] = [
     name: "Medical to archives loot path",
     style: "Loot running",
     risk: "Medium",
-    estXp: "24 000 – 40 000 XP",
+    estXp: "12 000 – 40 000 XP",
     timePerRun: "18 – 26 minutes",
     description:
       "Start in Medical Research, sweep labs and consulting rooms, then drift into quieter archive wings for extra containers and bodies.",
@@ -197,7 +197,7 @@ export const routes: FarmingRoute[] = [
     name: "Medical crawl stealth loop",
     style: "Stealth",
     risk: "Low",
-    estXp: "18 000 – 30 000 XP",
+    estXp: "8 000 – 30 000 XP",
     timePerRun: "20 – 28 minutes",
     description:
       "Methodically clear the medical wing corridor by corridor, closing doors and never holding long sightlines for too long.",

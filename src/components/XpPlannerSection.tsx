@@ -20,19 +20,19 @@ export default function XpPlannerSection() {
       label: "Newly Dropped Raider",
       description:
         "Learning routes, lots of scouting and some scuffed extractions. Expect slower levelling.",
-      avgXp: 22000,
+      avgXp: 5000,
     },
     seasoned: {
       label: "Seasoned Raider",
       description:
         "Comfortable on a couple of routes, mostly extracting, occasional boss or event fights.",
-      avgXp: 30000,
+      avgXp: 12000,
     },
     veteran: {
       label: "ARC Veteran",
       description:
         "Confident pathing, regular boss loops or hot routes, good extraction discipline.",
-      avgXp: 40000,
+      avgXp: 16000,
     },
   };
 
