@@ -303,7 +303,7 @@ export default function RunAssistantSection() {
             cautions.push(
               "Do not over clear areas. Once most containers are tapped, move on.",
               "Avoid chasing distant gunfire through open spaces just for a fight.",
-              "If you take heavy damage or lose most of your plates, reset and push towards extraction.",
+              "If you take heavy damage or lose most of your shield rechargers or healing items, reset and push towards extraction.",
             );
           } else {
             // Stealth farm

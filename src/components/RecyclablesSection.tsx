@@ -2,8 +2,8 @@ import { useState } from "react";
 import { MapId, SpawnRegionId, RecyclableDensity } from "../types";
 import { recyclableAreas } from "../data/recyclables";
 import { spawnRegionsByMap } from "../data/spawn";
-import { Card } from "../components/Card";
-import { Pill } from "../components/Pill";
+import { Card } from "./Card";
+import { Pill } from "./Pill";
 import { Recycle, Map } from "lucide-react";
 
 const maps = [
@@ -118,6 +118,14 @@ function RecyclablesSection() {
               </span>
             </li>
           </ul>
+          <div className="pt-3 mt-3 border-t border-slate-700/50">
+            <p className="text-amber-300/90 mb-2">
+              Understanding Density:
+            </p>
+            <p className="text-slate-300">
+              Density indicates how likely you are to find recyclables in an area. Higher density means more recyclables spawn, but these high-value locations also attract other raiders, increasing your risk of PvP encounters. Choose your farming routes based on your current risk tolerance and material needs.
+            </p>
+          </div>
         </div>
       </Card>
 

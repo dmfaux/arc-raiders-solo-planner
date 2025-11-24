@@ -76,7 +76,7 @@ export const craftingParts: CraftingPart[] = [
     id: "reinforced-plating",
     name: "Reinforced Plating",
     rarity: "Uncommon",
-    description: "Hardened armor plating material",
+    description: "Hardened armour plating material",
   },
   {
     id: "power-cells",
@@ -132,10 +132,10 @@ export const recyclableItems: RecyclableItem[] = [
     sourceNote: "Commonly found in weapon caches and military areas",
   },
   {
-    id: "damaged-armor",
-    name: "Damaged Armor Plate",
+    id: "damaged-armour",
+    name: "Damaged Armour Plate",
     category: "Armour",
-    sourceNote: "Drops from defeated enemies and armor lockers",
+    sourceNote: "Drops from defeated enemies and armour lockers",
   },
   {
     id: "fried-motherboard",
@@ -195,7 +195,7 @@ export const recyclableItems: RecyclableItem[] = [
   },
   {
     id: "armor-reinforcement",
-    name: "Armor Reinforcement",
+    name: "Armour Reinforcement",
     category: "Armour",
     sourceNote: "Found in military installations",
   },
@@ -215,9 +215,9 @@ export const recyclableItems: RecyclableItem[] = [
   },
   {
     id: "armor-core",
-    name: "Armor Core",
+    name: "Armour Core",
     category: "Armour",
-    sourceNote: "Premium armor component from boss drops",
+    sourceNote: "Premium armour component from boss drops",
   },
   {
     id: "arc-servo",

@@ -80,6 +80,7 @@ export type Loadout = {
   utilities: string[];
   skills: string[];
   notes: string;
+  inventory: string[];
 };
 
 export type SectionId =

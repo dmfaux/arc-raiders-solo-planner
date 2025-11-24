@@ -1,5 +1,5 @@
-import { Card } from "./Card";
 import { loadouts } from "../data/loadouts";
+import { Card } from "./Card";
 
 export default function LoadoutsSection() {
   return (
@@ -26,7 +26,7 @@ export default function LoadoutsSection() {
               {loadout.focus}
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb  -6">
               <div className="bg-slate-900/30 p-4 rounded border border-slate-700/30">
                 <h4 className="font-semibold text-cyan-400 mb-3 uppercase tracking-wider text-sm">
                   Weapons
@@ -66,7 +66,7 @@ export default function LoadoutsSection() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-cyan-950/20 p-4 rounded border border-cyan-800/30">
                 <h4 className="font-semibold text-cyan-400 mb-3 uppercase tracking-wider text-sm">
                   Key Skills
@@ -85,6 +85,26 @@ export default function LoadoutsSection() {
                   ))}
                 </ul>
               </div>
+
+              <div className="bg-slate-900/30 p-4 rounded border border-slate-700/30">
+                <h4 className="font-semibold text-cyan-400 mb-3 uppercase tracking-wider text-sm">
+                  Recommended Inventory
+                </h4>
+                <ul className="space-y-2 text-slate-300 text-sm">
+                  {loadout.inventory.map((item, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-2"
+                    >
+                      <span className="text-cyan-400 mt-0.5">
+                        ▸
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               <div className="bg-slate-800/30 p-4 rounded border border-slate-700/30">
                 <h4 className="font-semibold text-slate-400 mb-3 uppercase tracking-wider text-sm">
                   Notes
@@ -100,4 +120,3 @@ export default function LoadoutsSection() {
     </div>
   );
 }
-

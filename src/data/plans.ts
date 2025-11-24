@@ -194,7 +194,7 @@ export const adaptivePlans: AdaptivePlan[] = [
     cautions: [
       "Do not become stuck chasing loot deep into open plazas when gunfire warns you off.",
       "If you have already looted most interiors in a block, move on. Staying adds risk without much extra XP.",
-      "Reset the loop if you lose most of your armour plates; you are a loot runner first, not a duellist.",
+      "Reset the loop if you lose most of your shield rechargers or healing items; you are a loot runner first, not a duellist.",
     ],
   },
 
@@ -317,7 +317,7 @@ export const adaptivePlans: AdaptivePlan[] = [
     ],
     cautions: [
       "If the loop dries up, rotate to a neighbouring cluster instead of wandering aimlessly.",
-      "Switch to a safer extraction once you feel your bag is worth saving or you run low on plates.",
+      "Switch to a safer extraction once you feel your bag is worth saving or you run low on shield rechargers.",
     ],
   },
 ];

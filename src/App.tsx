@@ -12,7 +12,7 @@ import {
   Calculator,
   Recycle,
 } from "lucide-react";
-import RecyclablesSection from "./sections/RecyclablesSection";
+import RecyclablesSection from "./components/RecyclablesSection";
 import OverviewSection from "./components/OverviewSection";
 import RunAssistantSection from "./components/RunAssistantSection";
 import FarmingRoutesSection from "./components/FarmingRoutesSection";
@@ -27,30 +27,30 @@ const sections: { id: SectionId; label: string; icon: any }[] =
   [
     { id: "overview", label: "Overview", icon: Info },
     {
-      id: "run-assistant",
-      label: "Run Assistant",
-      icon: Target,
-    },
-    {
       id: "farming-routes",
       label: "Farming Routes",
       icon: Route,
     },
+    { id: "general-tips", label: "General Tips", icon: Info },
     {
       id: "high-value-targets",
       label: "High Value Targets",
       icon: Crosshair,
     },
     { id: "loadouts", label: "Loadouts", icon: Package },
-    { id: "shortcuts", label: "Shortcuts", icon: Zap },
-    { id: "general-tips", label: "General Tips", icon: Info },
-    { id: "xp-planner", label: "XP Planner", icon: Calculator },
-    { id: "recyclables", label: "Recyclables", icon: Recycle },
+    { id: "recyclables", label: "Recyclable Locator", icon: Recycle },
     {
       id: "recycling-planner",
       label: "Recycling Planner",
       icon: Recycle,
     },
+    {
+      id: "run-assistant",
+      label: "Run Assistant",
+      icon: Target,
+    },
+    { id: "shortcuts", label: "Shortcuts", icon: Zap },
+    { id: "xp-planner", label: "XP Planner", icon: Calculator },
   ];
 
 function App() {

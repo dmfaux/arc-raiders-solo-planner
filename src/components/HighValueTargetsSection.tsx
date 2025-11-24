@@ -79,7 +79,7 @@ export default function HighValueTargetsSection() {
               </li>
               <li>
                 Player plus boss stacks when you are low on
-                plates or ammo.
+                shield rechargers or ammo.
               </li>
             </ul>
           </div>
