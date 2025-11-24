@@ -5,7 +5,7 @@
   import path from 'path';
 
   export default defineConfig({
-    base: '/arc-raiders-solo-planner/'
+    base: '/arc-raiders-solo-planner/',
     plugins: [react(), tailwindcss()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
