@@ -17,10 +17,10 @@ export const loadouts: Loadout[] = [
       "1x Smoke grenade for resetting bad fights or crossing open ground.",
     ],
     skills: [
-      "Prioritise recoil control and weapon handling perks for the Ferro.",
-      "Take extra shield recharger capacity and faster shield recharger application.",
-      "Movement speed and stamina perks to rotate between boss lanes quickly.",
-      "Any damage resistance or explosion resistance perks you can unlock.",
+      "Mobility tree: Marathon Runner and Youthful Lungs for stamina when repositioning between boss lanes.",
+      "Conditioning tree: Used to the Weight for heavy shield mobility, Survivor's Stamina for clutch escapes.",
+      "Conditioning tree: Downed but Determined extends bleed-out time if you get caught.",
+      "Survival tree: In-Round Crafting lets you make shield chargers and bandages mid-raid.",
     ],
     inventory: [
       "6 to 8 armour shield rechargers, at least blue quality if you can afford it.",
@@ -40,7 +40,7 @@ export const loadouts: Loadout[] = [
     primary:
       "Tempest assault rifle (medium ammo). Run a 1x or 2x optic, hip fire or handling mod. Carry around 150 to 180 medium rounds (5 to 6 magazines).",
     secondary:
-      "Kettle semi auto rifle (light ammo). Use it for accurate taps on raiders and drones outside Tempest comfort range. Carry 80 to 100 light rounds.",
+      "Kettle semi auto rifle (light ammo). Budget-friendly but effective for accurate taps on raiders and drones. 20-round magazine, light and ammo-efficient. Carry 80 to 100 light rounds.",
     utilities: [
       "2x Smoke grenades for crossing exposed streets or breaking sightlines.",
       "2x Flashbangs or stun grenades for quick room entries and disengages.",
@@ -48,10 +48,10 @@ export const loadouts: Loadout[] = [
       "1x Utility slot flex – extra smoke, decoy or a healing station if you have it.",
     ],
     skills: [
-      "Movement speed and stamina perks to keep your sprint uptime high.",
-      "Carry weight or backpack capacity perks so you can stay out longer.",
-      "Reload speed and weapon swap speed for quick reaction fights.",
-      "Basic survivability perks – extra health, fall damage reduction, shield recharger efficiency.",
+      "Mobility tree priority: Marathon Runner, Youthful Lungs, Effortless Roll, Calming Stroll for sustained movement.",
+      "Survival tree: Looter's Instincts (max level 5) for faster looting, Security Breach for locked containers.",
+      "Survival tree: In-Round Crafting lets you extend runs by making supplies on the fly.",
+      "Mobility tree: Vault on Vaults eliminates vaulting stamina cost for faster traversal.",
     ],
     inventory: [
       "4 to 5 armour shield rechargers, mostly used to escape rather than re fight.",
@@ -71,7 +71,7 @@ export const loadouts: Loadout[] = [
     primary:
       "Stitcher SMG (light ammo). Ideally suppressed if the mod exists. Carry 180 to 210 light rounds (6 to 7 magazines).",
     secondary:
-      "Venator pistol (medium ammo). Use it for precise taps on distant targets when you cannot close the gap. Carry 40 to 60 medium rounds.",
+      "Venator handgun (medium ammo). S-tier weapon that fires 2 bullets per trigger pull for high burst damage. Only 2kg weight, lightest in the game. Use for precise taps at range. Carry 40 to 60 medium rounds.",
     utilities: [
       "2x Flashbangs for tight corners and stairwells.",
       "1x Smoke grenade for retreating from over committed pushes.",
@@ -79,10 +79,10 @@ export const loadouts: Loadout[] = [
       "1x Mine or trap to cover flanks and staircases behind you.",
     ],
     skills: [
-      "Noise reduction and movement perks where available – walking and crouch movement are your core tools.",
-      "Improved hip fire and recoil control for the Stitcher in cramped rooms.",
-      "Extra shield recharger capacity but avoid over investing in pure tank perks – you are not trading in the open.",
-      "Perks that highlight loot or improve detection of traps and mines.",
+      "Survival tree priority: Looter's Instincts for faster looting, Security Breach for locked containers.",
+      "Mobility tree: Calming Stroll for stamina regen while walking, Effortless Roll for emergency dodges.",
+      "Survival tree: In-Round Crafting for making supplies during long indoor clears.",
+      "Conditioning tree: basic shield perks only – you should not be trading in the open.",
     ],
     inventory: [
       "4 to 6 armour shield rechargers, mostly for mistakes or surprise third parties.",
@@ -95,14 +95,14 @@ export const loadouts: Loadout[] = [
       "Treat every doorway as a kill funnel. Clear one wing or block at a time, closing doors behind you so any opened door is a clear audio warning. You win by surviving multiple small skirmishes, not by taking huge brawls. If another team starts mirroring your path, shift one wing sideways rather than fighting over the same rooms.",
   },
   {
-    id: "budget-dam-starter-rattler-bobcat",
-    name: "Budget Dam Starter – Rattler and Bobcat",
+    id: "budget-dam-starter-rattler-stitcher",
+    name: "Budget Dam Starter – Rattler and Stitcher",
     focus:
       "Entry level solo setup for The Dam and Buried City when your stash and skill trees are still thin.",
     primary:
-      "Rattler assault rifle (medium ammo). No fancy mods needed. Carry around 150 medium rounds (5 magazines).",
+      "Rattler assault rifle (medium ammo). No fancy mods needed. Note: only 10 rounds per magazine, so reload discipline is key. Carry around 150 medium rounds (15 reloads).",
     secondary:
-      "Bobcat or any cheap pistol you can craft. Carry 40 to 60 pistol rounds as a backup for when you cannot reload the Rattler safely.",
+      "Stitcher SMG (light ammo). Available in free loadouts and cheap to craft. High fire rate for close quarters panic situations. Carry 100 to 120 light rounds.",
     utilities: [
       "1x Frag grenade for emergency crowd control.",
       "1x Smoke grenade to cover revives or retreats even when playing solo.",
@@ -110,10 +110,10 @@ export const loadouts: Loadout[] = [
       "1x cheap mine or trap for ladder tops and narrow bridges.",
     ],
     skills: [
-      "Early recoil and handling perks for the Rattler.",
-      "Basic health and shield recharger efficiency perks first, then movement speed.",
-      "Faster revive and interaction perks pay off if you later swap to co op.",
-      "Any early crafting or economy perks that help you reach higher tier gear sooner.",
+      "Mobility tree first: Marathon Runner and Youthful Lungs for better stamina.",
+      "Survival tree: Looter's Instincts for faster looting, In-Round Crafting when available.",
+      "Conditioning tree: Used to the Weight if you carry heavier shields later.",
+      "Security Breach (Survival) unlocks valuable Security Lockers.",
     ],
     inventory: [
       "3 to 4 basic shield rechargers. Treat them as a finite resource and disengage once you hit your last one.",
@@ -122,6 +122,6 @@ export const loadouts: Loadout[] = [
       "Room left in your backpack for recyclables and materials rather than pure junk.",
     ],
     notes:
-      "This loadout will not let you bully full teams, so you should avoid wide open boss arenas and noisy events until you understand the flow of the map. Focus on picking around the edges of fights, cleaning up stray ARCs and looting fresh corpses. If you get a good drop, do not be afraid to cut the run short and bank the profit.",
+      "This loadout will not let you bully full teams, so you should avoid wide open boss arenas and noisy events until you understand the flow of the map. The Rattler's small magazine means you need to reload often, so always fight near cover. Focus on picking around the edges of fights, cleaning up stray ARCs and looting fresh corpses. If you get a good drop, do not be afraid to cut the run short and bank the profit.",
   },
 ];
