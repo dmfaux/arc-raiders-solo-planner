@@ -20,19 +20,19 @@ export default function XpPlannerSection() {
       label: "Newly Dropped Raider",
       description:
         "Learning routes, lots of scouting and some scuffed extractions. Expect slower levelling.",
-      avgXp: 5000,
+      avgXp: 4500,
     },
     seasoned: {
       label: "Seasoned Raider",
       description:
         "Comfortable on a couple of routes, mostly extracting, occasional boss or event fights.",
-      avgXp: 12000,
+      avgXp: 8000,
     },
     veteran: {
       label: "ARC Veteran",
       description:
         "Confident pathing, regular boss loops or hot routes, good extraction discipline.",
-      avgXp: 16000,
+      avgXp: 14000,
     },
   };
 
@@ -210,16 +210,13 @@ export default function XpPlannerSection() {
               className="w-full bg-slate-900/80 border border-cyan-800/50 rounded px-4 py-3 text-slate-200 backdrop-blur-sm"
             >
               <option value="rookie">
-                {xpBandConfig.rookie.label} (about 22 000 XP per
-                run)
+                {xpBandConfig.rookie.label} (~4,500 XP per run)
               </option>
               <option value="seasoned">
-                {xpBandConfig.seasoned.label} (about 30 000 XP
-                per run)
+                {xpBandConfig.seasoned.label} (~8,000 XP per run)
               </option>
               <option value="veteran">
-                {xpBandConfig.veteran.label} (about 40 000 XP
-                per run)
+                {xpBandConfig.veteran.label} (~14,000 XP per run)
               </option>
             </select>
           </div>
